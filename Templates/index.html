@@ -7,10 +7,29 @@
 <body>
     <h1 style="text-align: center;">Blog Bay</h1>
     <p style="font-size: 60px; font-weight: bolder"> Nav Bar </p>
+    <a href="#" style="font-size: 25px;"> Create a new Blog </a>
 
 
     {% block container %}
+        <div>
+            {%for i in blogs%}
+                <hr>
+                <h3>
+                    {{i.title}}
+                </h3>
+                <p>
+                    {{i.description}}
+                    <br><br><br>
+                    <a href="#"> Modify the blog </a>
+                    <br>
+                    <a href="#"> Comment </a>
+                </p>
+                <hr>
 
+
+            {%endfor%}
+        </div>
+        
     {% endblock container%}
 </body>
 </html>
