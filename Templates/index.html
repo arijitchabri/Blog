@@ -16,6 +16,7 @@
         <nav class="nav-bar">
             <ul>
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'create_blog'%}">CREATE BLOG</a></li>
+                <li><a class="nav-link" href="{% url 'Home'%}">Create User</a></li>
                 <li><a class="nav-link" href="{% url 'Home'%}">HOME</a></li>
                 <li><a class="nav-link" href="#">ABOUT</a></li>
             </ul>
@@ -32,7 +33,10 @@
                 <div class="blog-description">
                     {{i.description}}
                 </div>
-                <button class="btn-blog btn-blog-edit">Edit</button>
+                <img src="{{i.display_picture.url}}" alt="display picture" style="height: 128px; width: 128px;">
+                <br>
+                <button class="btn-blog btn-blog-edit"><a href="{% url 'update_blog' i.id%}">Edit</a></button>
+                <button class="btn-blog btn-blog-edit"><a href="{% url 'delete_blog' i.id%}">Delete</a></button>
                 <button class="btn-blog btn-blog-comment">Comment</button>
             </div>
         </div>
