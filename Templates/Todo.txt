@@ -1,0 +1,38 @@
+1. Create a project (django-admin startproject project_name)
+
+2. Create apps (python3 manage.py startapp app_name)
+
+3. Update the settings and add the app_name in the installed apps
+
+4. Update the urls patterns and add the urls pattern for the app
+
+5. Create views in the app and give the funcionalities
+
+6. Add the views to the urls path
+
+** Remember the the urls works as the file system its like the urlspatterns in the main project app with the project name is the root url the is we 
+update it with another app url the it loads that apps url in another sub folder later it uses that sub folder to handel that app's urls**
+
+
+7. To create database in django we use the model class and make other classes inheriting the models.Model class and inside that class there are fiels like
+text, char, int, image etc fields.
+
+8. We can create form to have input from the webpage without accessing the admin panel.
+
+9. For the ease of impliment we can use the modelForm to create form for the models we have created.
+
+** modelform creates a form of the particular fields we have made in the model profile in the model.py file we have to tell django about that too.**
+
+10. There is the post request to send the data form the webpage 'form' we have just created but we have to use the csrf token to send the data into the backend.
+
+11. We can validate the data and store it in the database form the views
+
+12. for handeling the text, char, int fields django is sufficient but to manage the media we have to use the pillow package
+
+13. We have to store the html files or pages in the template file accordingly to organize the pages.
+we can even use same html file in diffrent viess of app. We have to keep the Templates in the BASE_DIR. If the settings are not modified then
+we have to modify the settings and add the Templates folder in the settings.
+
+14. To re-design and modify the look and feel of the webpage we can use css and diffrent images. To keep this images and css we use the static folder
+which can be inside any app folder and can contain all the static files for the entair project. We have to modify the setting for static files.
+

@@ -7,7 +7,7 @@ from .forms import *
 def home(request):
     blogs = Blog.objects.all().reverse()
     content = {'blogs' : blogs}
-    return render(request, 'index.html', content)
+    return render(request, 'blog/index.html', content)
 
 def create_blog(request):
     form = BlogForm()
@@ -18,7 +18,7 @@ def create_blog(request):
             form.save()
             return redirect('Home')
     content = { 'form' : form}
-    return render(request, 'create_blog.html', content)
+    return render(request, 'blog/create_blog.html', content)
 
 def update_blog(request, pk):
     blog = Blog.objects.get(id = pk)
@@ -30,7 +30,7 @@ def update_blog(request, pk):
             form.save()
             return redirect('Home')
     content = {'form' : form}
-    return render(request, 'create_blog.html', content)
+    return render(request, 'blog/create_blog.html', content)
 
 def delete_blog(request, pk):
     blog = Blog.objects.get(id = pk)
@@ -38,4 +38,4 @@ def delete_blog(request, pk):
         blog.delete()
         return redirect('Home')
 
-    return render(request, 'delete_blog.html')
+    return render(request, 'blog/delete_blog.html')

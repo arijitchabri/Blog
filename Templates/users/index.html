@@ -1,0 +1,28 @@
+{% extends 'blog/index.html' %}
+
+{% block container%}
+
+{% for i in users%}
+
+<div class="container-1">
+    <div class="blog-summary">
+        <div class="heading heading-blog-title">
+            {{i.name}}
+        </div>
+        <div class="blog-description">
+            {{i.about}}
+        </div>
+        <div class="blog-description">
+            {{i.mail}}
+        </div>
+        <img src="{{i.profile_picture.url}}" alt="profile picture" style="height: 128px; width: 128px;">
+        <br>
+        <button class="btn-blog btn-blog-edit"><a href="{% url 'update_blog' i.id%}">Edit</a></button>
+        <button class="btn-blog btn-blog-edit"><a href="{% url 'delete_blog' i.id%}">Delete</a></button>
+        <button class="btn-blog btn-blog-comment">Comment</button>
+    </div>
+</div>
+
+{% endfor%}
+
+{% endblock container%}
