@@ -18,9 +18,27 @@
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'users'%}">Users</a></li>
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'create_user'%}">Create User</a></li>
                 <li><a class="nav-link nav-link-create-blog" href="#">ABOUT</a></li>
+                {% if request.user.is_authenticated%}
+                <li><a class="nav-link nav-link-create-blog" href="{% url 'logout'%}">Logout</a></li>
+                {% else%}
+                <li><a class="nav-link nav-link-create-blog" href="{% url 'login'%}">Login</a></li>
+                {% endif%}
+
             </ul>
         </nav>
     </header>
+
+    {% if messages %}
+                
+                <ul class = 'messages'>
+
+                    {% for message in messages%}
+                    <li {% if message.tags %} class = '{{message.tags}}'{%endif%}>{{message}}</li>
+                    {% endfor%}
+                
+                </ul>
+                
+                {% endif%}
 
     {% block container %}
     
