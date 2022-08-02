@@ -53,6 +53,7 @@
                         {{i.description}}
                     </div>
                     <img src="{{i.display_picture.url}}" alt="display picture" style="height: 128px; width: 128px;">
+                    <p> By: {{i.author.name}} </p>
                     <br>
                     <button class="btn-blog btn-blog-edit"><a href="{% url 'update_blog' i.id%}">Edit</a></button>
                     <button class="btn-blog btn-blog-edit"><a href="{% url 'delete_blog' i.id%}">Delete</a></button>
