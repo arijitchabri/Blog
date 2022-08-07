@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Delete Blog</title>
+    <meta charset="UTF-8"><title>Delete</title>
 </head>
 <body>
     <p>Are you sure you want to delete the blog ?</p>
     <br>
-    <form method = 'POST' action="">
+    
+    <br>
+    <form action="", method = 'POST'>
         {% csrf_token %}
+        
+        <a href="{%url 'Home'%}"> Go back</a>
         <input type="submit" value="confirm">
-        <button><a href="{%url 'Home'%}"></a>Go back</button>
     </form>
     
 </body>

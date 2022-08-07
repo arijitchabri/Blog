@@ -1,10 +1,39 @@
 {% extends 'blog/index.html'%}
 
 {% block container%}
+{%if page == 'login'%}
+
     <form action="{% url 'login'%}" method="POST">
         {% csrf_token %}
         <input type="text" name = 'username' placeholder="username">
         <input type="password" name = 'password' placeholder="password">
         <input type="submit" value="Login">
+        <br>
+        <br>
+        <p> If you don't have account <a href="{% url 'register' %}">Sing Up</a> here</p>
     </form>
+
+{% elif page == 'modify'%}
+
+<form action="" method = 'POST'>
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" value = 'Confirm'>
+    <br>
+    <br>
+</form>
+
+{%else%}
+
+    <form action="{% url 'register'%}" method = 'POST'>
+        {% csrf_token %}
+        {{form.as_p }}
+        <input type="submit" value = 'Sing Up'>
+        <br>
+        <br>
+        <p>If you already have an account please <a href="{% url 'login' %}">log in</a> here</p>
+    </form>
+
+{% endif %}
+
 {% endblock container%}

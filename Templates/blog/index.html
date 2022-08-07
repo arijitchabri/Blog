@@ -16,7 +16,6 @@
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'Home'%}">HOME</a></li>
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'create_blog'%}">CREATE BLOG</a></li>
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'users'%}">Users</a></li>
-                <li><a class="nav-link nav-link-create-blog" href="{% url 'create_user'%}">Create User</a></li>
                 <li><a class="nav-link nav-link-create-blog" href="#">ABOUT</a></li>
                 {% if request.user.is_authenticated%}
                 <li><a class="nav-link nav-link-create-blog" href="{% url 'logout'%}">Logout</a></li>

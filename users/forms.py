@@ -6,5 +6,6 @@ class UsersForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = '__all__'
+        exclude = ['users']
 
 
