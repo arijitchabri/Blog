@@ -15,10 +15,13 @@
         <div class="blog-description">
             {{i.mail}}
         </div>
+        <div class="blog-description">
+            {{i.users}}
+        </div>
         <img src="{{i.profile_picture.url}}" alt="profile picture" style="height: 128px; width: 128px;">
         <br>
-        <button class="btn-blog btn-blog-edit"><a href="{% url 'update_blog' i.id%}">Edit</a></button>
-        <button class="btn-blog btn-blog-edit"><a href="{% url 'delete_blog' i.id%}">Delete</a></button>
+        <button class="btn-blog btn-blog-edit"><a href="{% url 'modify' i.users%}">Edit</a></button>
+        <button class="btn-blog btn-blog-edit"><a href="{% url 'delete' i.users%}">Delete</a></button>
         <button class="btn-blog btn-blog-comment">Comment</button>
     </div>
 </div>
