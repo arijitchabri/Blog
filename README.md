@@ -9,8 +9,8 @@ A simple implementation for beginers to learn how django works.
   2. View blog
   3. Modify or delete post form home page
   4. Adding user
+  5. Authenticate user
+  6. Dedicate users to modify dedicate posts
 
 ###### Pending:
-  1. Authenticate user
-  2. Adding comments to the blog
-  3. Dedicate users to modify dedicate posts
+  1. Adding comments to the blog
