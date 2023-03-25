@@ -7,7 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 def users(request):
@@ -25,7 +26,18 @@ def create_user(request):
             form = form.save(commit=False)
             user = User.objects.get(username = request.user)
             form.users = user
-            form.save()     
+            form.save()
+
+            subject = "Welcome to Blogbay"
+            message = 'We are glad to have you here.\nEnjoy our little effort.'
+            user_mail = Users.objects.get(users=request.user).mail
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [user_mail],
+                fail_silently=False,
+            )
         return redirect('users')
     context = {'form' : form}
     return render(request, 'users/create_user.html', context)
@@ -83,8 +95,8 @@ def modifyUser(request, username):
     page = 'modify'
     user = User.objects.get(username = username)
     
-    if not(request.user.is_superuser):
-        messages.error(request, 'Only super user can modify an account')
+    if not(request.user.is_superuser) and user != request.user:
+        messages.error(request, 'You are not authorize to modify this account!')
         return redirect('users')
     form = UserChangeForm(instance = user)
     if request.method == 'POST':
@@ -101,7 +113,7 @@ def modifyUser(request, username):
 def deleteUser(request, username):
     user = User.objects.get(username = username)
     if user != request.user and not(request.user.is_superuser):
-            messages.error(request, 'You only can delete your own account')
+            messages.error(request, 'You are not authorize to delete this account!')
             return redirect('users')
     if request.method == 'POST':
         user.delete()

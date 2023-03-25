@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # ADDING OUR APPS 
     'Home',
     'users',
 ]
@@ -72,6 +73,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Blog.wsgi.application'
 
+#THIS IS FOR EMAIL SETUP
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'superusercontroller@gmail.com'
+EMAIL_HOST_PASSWORD = 'bzrdjtqyxlujvknw'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
